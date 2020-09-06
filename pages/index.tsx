@@ -1,15 +1,28 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Layout from '../components/layout/Layout';
+import { GetStaticProps } from 'next';
+import axios from 'axios';
+import IndexPage from '../components/index-page/index.page';
+import { getAllMovies } from '../utils/movies.service';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+const Index = (props: any) => {
+	console.log(props);
+	
+	return (
+		<Layout title='Home | Next.js + TypeScript Example'>
+			<IndexPage />
+		</Layout>
+	);
+}
 
-export default IndexPage
+export default Index;
+
+export const getStaticProps: GetStaticProps = async () => {
+	const res = await axios.get('/movies');
+	const movies = res.data;
+	
+	return {
+		props: {
+			movies
+		}
+	};
+};
