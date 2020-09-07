@@ -17,11 +17,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ movies }: IndexPageProps) => {
 	});
 
 	return (
-		<Layout title='Index title page'>
-			<div className='container'>
-				<div className='row'>{moviesContent}</div>
-			</div>
-		</Layout>
+		<div className='container'>
+			<div className='row'>{moviesContent}</div>
+		</div>
 	);
 };
 
