@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../layout/Layout';
 import MovieItem from '../movie/movie.component';
 import { Movie } from '../../interfaces/movie.interface';
 
