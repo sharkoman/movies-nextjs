@@ -2,14 +2,18 @@ import Layout from '../components/layout/Layout';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
 import IndexPage from '../components/index-page/index.page';
-import { getAllMovies } from '../utils/movies.service';
+import { Movie } from '../interfaces/movie.interface';
 
-const Index = (props: any) => {
-	console.log(props);
+interface IndexProps {
+	movies: Movie[]
+}
+
+const Index = ({movies}: IndexProps) => {
+	console.log(movies);
 	
 	return (
 		<Layout title='Home | Next.js + TypeScript Example'>
-			<IndexPage />
+			<IndexPage movies={movies} />
 		</Layout>
 	);
 }

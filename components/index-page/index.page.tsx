@@ -1,14 +1,26 @@
-import React from 'react'
+import React from 'react';
 import Layout from '../layout/Layout';
+import MovieItem from '../movie/movie.component';
+import { Movie } from '../../interfaces/movie.interface';
 
-interface Props {
-	
+interface IndexPageProps {
+	movies: Movie[];
 }
 
-const IndexPage: React.FC = (props: Props) => {
+const IndexPage: React.FC<IndexPageProps> = ({ movies }: IndexPageProps) => {
+	const moviesContent = movies.map((movie) => {
+		return (
+			<div key={movie.id} className='col-3'>
+				<MovieItem movie={movie} />
+			</div>
+		);
+	});
+
 	return (
 		<Layout title='Index title page'>
-			<h1>Strapi Movies App: Index</h1>
+			<div className='container'>
+				<div className='row'>{moviesContent}</div>
+			</div>
 		</Layout>
 	);
 };
