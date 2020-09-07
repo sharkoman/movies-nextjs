@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const configAxios = () => {
-	axios.defaults.baseURL = 'http://localhost:1337';
+	axios.defaults.baseURL = 'https://movies-strapi.herokuapp.com';
 }
 
 export default configAxios;

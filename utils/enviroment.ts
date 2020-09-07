@@ -1,1 +1,1 @@
-export const BackURI = 'http://localhost:1337';
+export const BackURI = 'https://movies-strapi.herokuapp.com';
