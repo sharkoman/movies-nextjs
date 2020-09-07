@@ -1,10 +1,6 @@
 import React from 'react'
 
-interface Props {
-	
-}
-
-const MoviePage: React.FC = (props: Props) => {
+const MoviePage: React.FC = () => {
 	return (
 		<>
 			<h2>Movie Page</h2>	

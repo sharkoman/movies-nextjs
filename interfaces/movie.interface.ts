@@ -11,10 +11,10 @@ export interface Movie {
 	created_at:   string;
 	updated_at:   string;
 	poster:       Poster;
-	actors:       Actor[];
+	actors:       ActorModel[];
 }
 
-export interface Actor {
+export interface ActorModel {
 	id:         number;
 	name:       string;
 	summery:    string;

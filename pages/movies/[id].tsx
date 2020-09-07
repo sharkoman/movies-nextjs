@@ -3,6 +3,7 @@ import { GetStaticProps, GetStaticPropsContext, GetStaticPaths, GetStaticPathsRe
 import { Movie } from '../../interfaces/movie.interface';
 import Axios from 'axios';
 import { BackURI } from '../../utils/enviroment';
+import Link from 'next/link';
 
 interface MovieProps {
 	movie: Movie;
@@ -28,10 +29,14 @@ const MoviePage: NextPage<MovieProps> = ({ movie }) => {
 			<ul className='list-unstyled'>
 				{movie.actors.map((actor) => (
 					<li key={actor.id} className='media actor_item'>
-						<img className='img-fluid rounded-circle mr-3' width='50' height='100' src={`${BackURI}${actor.image.url}`} alt={actor.name} />
-						<div className='media-body'>
-							<h5 className='mt-0 mb-1'>{actor.name}</h5>
-						</div>
+						<Link as={`/actors/${actor.id}`} href='/actors/[id]'>
+							<a>
+								<img className='img-fluid rounded-circle mr-3' width='50' height='100' src={`${BackURI}${actor.image.url}`} alt={actor.name} />
+								<div className='media-body'>
+									<h5 className='mt-0 mb-1'>{actor.name}</h5>
+								</div>
+							</a>
+						</Link>
 					</li>
 				))}
 			</ul>
