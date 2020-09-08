@@ -1,8 +1,8 @@
 import Layout from '../components/layout/Layout';
 import { GetStaticProps } from 'next';
-import axios from 'axios';
 import IndexPage from '../components/index-page/index.page';
 import { Movie } from '../interfaces/movie.interface';
+import axiosAPI from '../utils/axios.config';
 
 interface IndexProps {
 	movies: Movie[]
@@ -21,7 +21,7 @@ const Index = ({movies}: IndexProps) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-	const res = await axios.get('/movies');
+	const res = await axiosAPI.get('/movies');
 	const movies = res.data;
 	
 	return {

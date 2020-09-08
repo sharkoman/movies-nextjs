@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const configAxios = () => {
-	axios.defaults.baseURL = 'https://movies-strapi-cms.herokuapp.com';
-}
+const axiosAPI = axios.create({
+	baseURL: 'https://movies-strapi-cms.herokuapp.com'
+});
 
-export default configAxios;
+export default axiosAPI;

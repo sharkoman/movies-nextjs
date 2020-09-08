@@ -3,19 +3,15 @@ import { NextPage, GetStaticProps, GetStaticPropsContext, GetStaticPaths, GetSta
 import Layout from '../../components/layout/Layout';
 import ActorPage from '../../components/actor-page/actor.page';
 import { ActorModel } from '../../interfaces/movie.interface';
-import Axios from 'axios';
-// import { useRouter } from 'next/dist/client/router';
+import axios from 'axios';
+import axiosAPI from '../../utils/axios.config';
 
+axios.defaults.baseURL = 'https://movies-strapi-cms.herokuapp.com';
 interface ActorProps {
 	actor: ActorModel;
 }
 
 const Actor: NextPage<ActorProps> = ({ actor }) => {
-	// const router = useRouter();
-	// if (router.isFallback) {
-	// 	return <div>fallback</div>
-	// }
-
 	return (
 		<Layout title='actor page'>
 			<ActorPage actor={actor} />
@@ -25,7 +21,7 @@ const Actor: NextPage<ActorProps> = ({ actor }) => {
 
 export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsContext) => {
 	const id = ctx?.params?.id;
-	const actor = await Axios.get(`https://movies-strapi-cms.herokuapp.com/actors/${id}`);
+	const actor = await axiosAPI.get(`/actors/${id}`);
 
 	return {
 		props: {
@@ -35,7 +31,7 @@ export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsCon
 };
 
 export const getStaticPaths: GetStaticPaths<any> = async (): Promise<GetStaticPathsResult<{ id: string }>> => {
-	const actors = await Axios.get<ActorModel[]>('https://movies-strapi-cms.herokuapp.com/actors');
+	const actors = await axiosAPI.get<ActorModel[]>('/actors');
 	const res = actors.data.map((actor) => {
 		return { params: { id: actor.id.toString() } };
 	});

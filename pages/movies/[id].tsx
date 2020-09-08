@@ -1,9 +1,9 @@
 import Layout from '../../components/layout/Layout';
 import { GetStaticProps, GetStaticPropsContext, GetStaticPaths, GetStaticPathsResult, NextPage } from 'next';
 import { Movie } from '../../interfaces/movie.interface';
-import axios from 'axios';
 import { BackURI } from '../../utils/enviroment';
 import Link from 'next/link';
+import axiosAPI from '../../utils/axios.config';
 
 interface MovieProps {
 	movie: Movie;
@@ -64,7 +64,7 @@ const MoviePage: NextPage<MovieProps> = ({ movie }) => {
 
 export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsContext) => {
 	const id = ctx?.params?.id;
-	const res = await axios.get(`https://movies-strapi-cms.herokuapp.com/movies/${id}`);
+	const res = await axiosAPI.get(`/movies/${id}`);
 	return {
 		props: {
 			movie: res.data,
@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsCon
 };
 
 export const getStaticPaths: GetStaticPaths<any> = async (): Promise<GetStaticPathsResult<{ id: string }>> => {
-	const movies = await axios.get<Movie[]>('https://movies-strapi-cms.herokuapp.com/movies');
+	const movies = await axiosAPI.get<Movie[]>('/movies');
 	const paths = movies.data.map((m) => ({
 		params: {
 			id: m.id.toString(),
