@@ -11,11 +11,11 @@ const ActorPage: React.FC<ActorProps> = ({ actor }) => {
 		<div className='container'>
 			<div className="row">
 				<div className="col-4">
-					<img className='img-fluid' src={`${BackURI}${actor.image.url}`} />
+					<img className='img-fluid' src={`${BackURI}${actor?.image?.url}`} />
 				</div>
 				<div className="col">
-					<h2>{actor.name}</h2>
-					<p>{actor.summery}</p>
+					<h2>{actor?.name}</h2>
+					<p>{actor?.summery}</p>
 				</div>
 			</div>
 		</div>

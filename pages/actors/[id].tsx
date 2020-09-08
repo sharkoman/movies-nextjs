@@ -25,7 +25,7 @@ const Actor: NextPage<ActorProps> = ({ actor }) => {
 
 export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsContext) => {
 	const id = ctx?.params?.id;
-	const actor = await Axios.get(`/actors/${id}`);
+	const actor = await Axios.get(`https://movies-strapi-cms.herokuapp.com/actors/${id}`);
 
 	return {
 		props: {
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsCon
 };
 
 export const getStaticPaths: GetStaticPaths<any> = async (): Promise<GetStaticPathsResult<{ id: string }>> => {
-	const actors = await Axios.get<ActorModel[]>('/actors');
+	const actors = await Axios.get<ActorModel[]>('https://movies-strapi-cms.herokuapp.com/actors');
 	const res = actors.data.map((actor) => {
 		return { params: { id: actor.id.toString() } };
 	});
