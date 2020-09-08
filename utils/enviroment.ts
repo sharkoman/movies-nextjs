@@ -1,1 +1,1 @@
-export const BackURI = 'https://movies-strapi.herokuapp.com';
+export const BackURI = 'https://movies-strapi-cms.herokuapp.com';
