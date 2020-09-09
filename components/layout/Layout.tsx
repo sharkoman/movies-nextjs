@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 type Props = {
 	children?: ReactNode;
@@ -14,7 +15,11 @@ const Layout = ({ children, title = 'Strapi Movies' }: Props) => (
 			<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 		</Head>
 		<header>
-			<h1 className='text-center'>Strapi Movies App</h1>
+			<Link href="/">
+				<a>
+					<h1 className='text-center'>Strapi Movies App</h1>
+				</a>
+			</Link>
 		</header>
 		<main>{children}</main>
 		<footer>
