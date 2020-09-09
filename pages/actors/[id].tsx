@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsCon
 		props: {
 			actor: actor.data,
 		},
+		revalidate: 5,
 	};
 };
 

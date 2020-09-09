@@ -69,6 +69,7 @@ export const getStaticProps: GetStaticProps<any> = async (ctx: GetStaticPropsCon
 		props: {
 			movie: res.data,
 		},
+		revalidate: 5,
 	};
 };
 
