@@ -24,6 +24,7 @@ export interface ActorModel {
 	created_at: string;
 	updated_at: string;
 	image:      Image;
+	movies: 	Movie[];
 }
 
 interface Image {
