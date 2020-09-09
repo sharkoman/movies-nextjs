@@ -1,6 +1,5 @@
 import React from 'react';
 import { Movie } from '../../interfaces/movie.interface';
-import { BackURI } from '../../utils/enviroment';
 import Link from 'next/link';
 import { trim_words } from '../../utils/methods';
 import styles from './movie.module.scss';
@@ -14,7 +13,7 @@ const MovieItem: React.FC<MovieModal> = ({ movie }) => {
 		<div className={`card ${styles.movie_item}`}>
 			<Link as={`/movies/${movie?.id}`} href='/movies/[id]'>
 				<a>
-					<img className='card-img-top' src={`${BackURI}${movie?.poster?.url}`} alt={movie?.Name} />
+					<img className='card-img-top' src={`${movie?.poster?.url}`} alt={movie?.Name} />
 				</a>
 			</Link>
 

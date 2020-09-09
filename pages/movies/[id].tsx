@@ -31,7 +31,7 @@ const MoviePage: NextPage<MovieProps> = ({ movie }) => {
 					<li key={actor?.id} className='media actor_item'>
 						<Link as={`/actors/${actor?.id}`} href='/actors/[id]'>
 							<a>
-								<img className='img-fluid rounded-circle mr-3' width='50' height='100' src={`${BackURI}${actor?.image?.url}`} alt={actor.name} />
+								<img className='img-fluid rounded-circle mr-3' width='50' height='100' src={`${actor?.image?.url}`} alt={actor.name} />
 								<div className='media-body'>
 									<h5 className='mt-0 mb-1'>{actor?.name}</h5>
 								</div>
@@ -48,7 +48,7 @@ const MoviePage: NextPage<MovieProps> = ({ movie }) => {
 			<div className='container'>
 				<div className='row'>
 					<div className='col-4'>
-						<img className='img-fluid' src={`${BackURI}${movie?.poster?.url}`} alt={movie?.Name} />
+						<img className='img-fluid' src={`${movie?.poster?.url}`} alt={movie?.Name} />
 					</div>
 					<div className='col'>
 						<h2>{movie?.Name}</h2>
