@@ -17,7 +17,7 @@ const MovieItem: React.FC<MovieModal> = ({ movie }) => {
 				</a>
 			</Link>
 
-			<div className='card-body'>
+			<div className='card-body d-flex flex-column'>
 				<h5 className='card-title'>
 					<Link as={`/movies/${movie?.id}`} href='/movies/[id]'>
 						<a>{movie?.Name}</a>
@@ -25,7 +25,7 @@ const MovieItem: React.FC<MovieModal> = ({ movie }) => {
 				</h5>
 				<p className='card-text'>{trim_words({ text: movie?.desc, charNumber: 100, showDots: true })}</p>
 				<Link as={`/movies/${movie?.id}`} href='/movies/[id]'>
-					<a className='btn btn-primary'>Details</a>
+					<a className='btn btn-primary mt-auto'>Details</a>
 				</Link>
 			</div>
 		</div>
