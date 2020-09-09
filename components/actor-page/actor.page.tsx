@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActorModel } from '../../interfaces/movie.interface';
-import { BackURI } from '../../utils/enviroment';
 
 interface ActorProps {
 	actor: ActorModel;

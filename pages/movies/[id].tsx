@@ -1,7 +1,6 @@
 import Layout from '../../components/layout/Layout';
 import { GetStaticProps, GetStaticPropsContext, GetStaticPaths, GetStaticPathsResult, NextPage } from 'next';
 import { Movie } from '../../interfaces/movie.interface';
-import { BackURI } from '../../utils/enviroment';
 import Link from 'next/link';
 import axiosAPI from '../../utils/axios.config';
 
